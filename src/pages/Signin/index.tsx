@@ -1,5 +1,11 @@
 import React from "react";
-import { Image, KeyboardAvoidingView, Platform, View, ScrollView } from "react-native";
+import {
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  View,
+  ScrollView,
+} from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
@@ -18,31 +24,34 @@ const SignIn: React.FC = () => {
     <>
       <KeyboardAvoidingView
         style={{ flex: 1 }}
-        behavior={Platform.os === "ios" ? "padding" : undefined}
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
         enabled
       >
-      <ScrollView>
-        <Container>
-          <Image source={LogoImg} />
-          <View>
-            <Title>Faça seu logon</Title>
-          </View>
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{ flex: 1 }}
+        >
+          <Container>
+            <Image source={LogoImg} />
+            <View>
+              <Title>Faça seu logon</Title>
+            </View>
 
-          <Input name="email" icon="mail" placeholder="E-mail" />
-          <Input name="password" icon="lock" placeholder="Senha" />
+            <Input name="email" icon="mail" placeholder="E-mail" />
+            <Input name="password" icon="lock" placeholder="Senha" />
 
-          <Button
-            onPress={() => {
-              console.log("OK");
-            }}
-          >
-            Entrar
-          </Button>
+            <Button
+              onPress={() => {
+                console.log("OK");
+              }}
+            >
+              Entrar
+            </Button>
 
-          <ForgotPassword onPress={() => {}}>
-            <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
-          </ForgotPassword>
-        </Container>
+            <ForgotPassword onPress={() => {}}>
+              <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+            </ForgotPassword>
+          </Container>
         </ScrollView>
       </KeyboardAvoidingView>
       <CreateAccountButton onPress={() => {}}>
